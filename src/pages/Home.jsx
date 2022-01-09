@@ -7,11 +7,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import Popup from '../components/Popup';
 
-const Home = ({ setCurrent }) => {
+const Home = ({ setCurrent, currentTask }) => {
     const navigate = useNavigate();
     const [startMsg, setStartMsg] = useState("Estás al día con tus tareas");
     const context = useContext(Context);
     const { taskList, setList } = context;
+    const [show, setShow] = useState(false);
 
     useEffect(() => {
         setCurrent(null)
@@ -24,7 +25,8 @@ const Home = ({ setCurrent }) => {
 
     return (
         <>
-        <Popup/>
+
+            {currentTask && <Popup show={show} setShow={setShow} currentObj={currentTask} />}
             {!taskList?.length ?
                 <div className='text-center'>
                     <p>{startMsg}</p>
@@ -51,7 +53,6 @@ const Home = ({ setCurrent }) => {
                                                 <div className='col-1 m-0 text-right'>
                                                     <span onClick={(e) => {
                                                         let values = t;
-                                                        console.log(t);
                                                         setCurrent(values);
                                                         navigate("/tarea");
                                                     }
@@ -61,7 +62,9 @@ const Home = ({ setCurrent }) => {
                                                 </div>
                                                 <div className='col-1 m-0 text-right'>
                                                     <span onClick={() => {
-                                                        
+                                                        let values = t;
+                                                        setCurrent(values);
+                                                        setShow(true);
                                                     }}>
                                                         <FontAwesomeIcon className='pointer' size='1x' icon={faTrash} color='#BE2424' />
                                                     </span>
@@ -74,7 +77,9 @@ const Home = ({ setCurrent }) => {
                             })}
                         </ul>
                     </div>
-                    <button className='btn new-task circle-btn text-center' onClick={() => <Routes>{navigate("/tarea")}</Routes>}>+</button>
+                    <div className='text-right'>
+                        <button className='btn new-task circle-btn' onClick={() => <Routes>{navigate("/tarea")}</Routes>}>+</button>
+                    </div>
                 </>
             }
         </>

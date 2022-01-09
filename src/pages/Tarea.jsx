@@ -21,23 +21,8 @@ const Tarea = ({ task }) => {
                         descripcion: ''
                     }}
                     onSubmit={(values, actions) => {
-                        /* setTimeout(() => {
-                            console.log(values)
-                            actions.setSubmitting(false);
-                            navigate("/");
-                        }, 500);
-                         */
+                     
                         if (task) {
-                            /* let copy = [...taskList];
-                            let listWithChange = copy.length && copy.map(t => {
-                                if (t.id === task.id) {
-                                    t.nombre = values.nombre;
-                                    t.descripcion = values.descripcion;
-                                }
-                            })
-                            console.log("original", taskList)
-                            console.log("changed", listWithChange)
-                            console.log("values", values) */
                             taskList.length && taskList.map(t => {
                                 if (t.id === values.id) {
                                     t.nombre = values.nombre;

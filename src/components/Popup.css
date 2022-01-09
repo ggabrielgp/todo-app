@@ -13,10 +13,25 @@
 }
 
 .popup-inner {
-    position: relative;
-    padding: 32px;
-    width: 100%;
-    max-width: 320px;
-    background-color: white;
-    border-radius: 5%;
+  position: relative;
+  padding: 32px;
+  width: 100%;
+  max-width: 320px;
+  background-color: white;
+  border-radius: 5%;
+}
+
+.btn-eliminar {
+  width: 100px;
+  height: 32px;
+
+  background: #db0000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  border-color: transparent;
+}
+
+.btn-eliminar:hover {
+  background: #db0000;
+  border-color: transparent;
 }

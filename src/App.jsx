@@ -19,7 +19,7 @@ const App = () => {
           <BrowserRouter>
             <TaskContextProvider>
               <Routes>
-                <Route exact path="/" element={<Home setCurrent={setCurrent} />}></Route>
+                <Route exact path="/" element={<Home setCurrent={setCurrent} currentTask={currentTask} />}></Route>
                 <Route exact path="/tarea" element={<Tarea task={currentTask} />}></Route>
               </Routes>
             </TaskContextProvider>
